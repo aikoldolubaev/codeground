@@ -1,0 +1,45 @@
+.mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgb(0, 0, 0, 0.2);
+}
+
+.drawerContent {
+	position: fixed;
+	left: auto;
+	right: 0;
+	height: 100%;
+	width: 400px;
+	background: #fff;
+	/* The content is a flex item within a fixed div which has access to the full height of the viewport */
+	display: flex;
+	flex-direction: column;
+}
+
+.drawerHeader,
+.drawerFooter {
+	/* By using flex-shrink: 0, we are telling the flex container to always display these at their full size, don't 'scrunch' them */
+	flex-shrink: 0;
+	padding: 20px;
+}
+
+.drawerScrollable {
+	/* flex: 1 gives this container the rest of the space, overflow: auto gives you a scrollbar */
+	flex: 1;
+	overflow: auto;
+	background: #f7f7f7;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	margin: 0 0 20px;
+}

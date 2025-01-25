@@ -27,14 +27,13 @@ const output2 = [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
 
 // Easier solution to understand recursion (Direct Recursion with Choices)
 function generateSubsets(nums) {
-	const totalNumbers = nums.length
 	const subsets = []
-	const currentSubset = []
+	const stack = []
 
 	function backtrack(index) {
 		// Base case
-		if (index === totalNumbers) {
-			subsets.push([...currentSubset])
+		if (index === nums.length) {
+			subsets.push([...stack])
 			return
 		}
 
@@ -42,9 +41,9 @@ function generateSubsets(nums) {
 		backtrack(index + 1)
 
 		// Include nums[index]
-		currentSubset.push(nums[index])
+		stack.push(nums[index])
 		backtrack(index + 1)
-		currentSubset.pop()
+		stack.pop()
 	}
 
 	backtrack(0)

@@ -1,59 +1,53 @@
 function countIslands(grid) {
-	let islandCount = 0
+    let count = 0;
 
-	// Iterate through each cell in the grid
-	for (let row = 0; row < grid.length; row++) {
-		for (let col = 0; col < grid[0].length; col++) {
-			// If land ('1') is found
-			if (grid[row][col] === '1') {
-				const stack = []
-				stack.push([row, col]) // Add the starting cell to the stack
+    // Loop through each cell in the grid
+    for (let row = 0; row < grid.length; row++) {
+        for (let col = 0; col < grid[0].length; col++) {
+            // Check if the current cell is part of an island ('1')
+            if (grid[row][col] === '1') {
+                const stack = [[row, col]]; // Initialize stack with the current cell
 
-				// Perform an iterative DFS
-				while (stack.length > 0) {
-					const [currentRow, currentCol] = stack.pop()
+                // Perform iterative DFS using the stack
+                while (stack.length > 0) {
+                    const [currentRow, currentCol] = stack.pop();
 
-					// Boundary checks and water check
-					if (
-						currentRow < 0 || // Out of top boundary
-						currentRow >= grid.length || // Out of bottom boundary
-						currentCol < 0 || // Out of left boundary
-						currentCol >= grid[0].length || // Out of right boundary
-						grid[currentRow][currentCol] === '0' // Water or already visited
-					) {
-						continue
-					}
+                    // Ensure the cell is within bounds and unvisited land
+                    if (
+                        currentRow >= 0 && currentRow < grid.length && // Check row boundaries
+                        currentCol >= 0 && currentCol < grid[0].length && // Check column boundaries
+                        grid[currentRow][currentCol] === '1' // Check if land
+                    ) {
+                        grid[currentRow][currentCol] = '0'; // Mark as visited
 
-					// Mark the cell as visited
-					grid[currentRow][currentCol] = '0'
+                        // Add all adjacent cells to the stack
+                        stack.push([currentRow + 1, currentCol]); // Down
+                        stack.push([currentRow - 1, currentCol]); // Up
+                        stack.push([currentRow, currentCol + 1]); // Right
+                        stack.push([currentRow, currentCol - 1]); // Left
+                    }
+                }
 
-					// Add all adjacent cells to the stack
-					stack.push([currentRow + 1, currentCol]) // Down
-					stack.push([currentRow - 1, currentCol]) // Up
-					stack.push([currentRow, currentCol + 1]) // Right
-					stack.push([currentRow, currentCol - 1]) // Left
-				}
+                count++; // Increment the island count after fully exploring one
+            }
+        }
+    }
 
-				// Increment the island count
-				islandCount++
-			}
-		}
-	}
-
-	return {
-		count: islandCount,
-		grid, // Modified grid with visited cells
-	}
+    return {
+        count,
+        grid, // Return the modified grid
+    };
 }
 
 console.log(
-	countIslands([
-		['1', '1', '1', '1', '0'],
-		['1', '1', '0', '1', '0'],
-		['1', '1', '0', '0', '0'],
-		['0', '0', '0', '0', '0'],
-	])
-) // Output: { count: 1, grid: [...] }
+    countIslands([
+        ['1', '1', '1', '1', '0'],
+        ['1', '1', '0', '1', '0'],
+        ['1', '1', '0', '0', '0'],
+        ['0', '0', '0', '0', '0'],
+    ])
+); // Output: { count: 1, grid: [...] }
+
 
 const numIslands = (grid) => {
 	if (!grid || grid.length === 0) return 0

@@ -52,3 +52,24 @@ function generateSubsets(nums) {
 
 console.log(generateSubsets([1, 2]))
 const output3 = [[], [1, 2], [2], [1]]
+
+/* 
+*** Example to help to read code line by to keep track ***
+
+You will be writing here on each recursion:
+
+subsets: [ ... ]
+stack: [ ... ]
+nums: [1,2]
+
+Track the parameter on each recursion:
+
+backtrack(0)
+    backtrack(0+1)
+        backtrack(1+1)
+    backtrack(1+1)
+backtrack(0+1)
+    backtrack(1+1)
+backtrack(1+1)
+
+*/

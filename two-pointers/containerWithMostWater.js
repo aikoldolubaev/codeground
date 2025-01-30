@@ -1,3 +1,20 @@
+// Brute force:
+const maxWater = (nums) => {
+	let max = 0
+	for (let i = 0; i < nums.length; i++) {
+		for (let j = i + 1; j < nums.length; j++) {
+			const width = j - i
+			const minHeight = Math.min(nums[i], nums[j])
+			max = Math.max(max, width * minHeight)
+		}
+	}
+
+	return max
+}
+
+console.log(maxWater([12, 4, 4, 5])) // Output: 3*5=15
+
+// Two pointer:
 function maxArea(nums) {
 	let left = 0
 	let right = nums.length - 1

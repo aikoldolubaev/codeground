@@ -1,4 +1,4 @@
-function spiral(n) {
+const spiral = n => {
 	let results = []
 
 	for (let i = 0; i < n; i++) {
@@ -39,4 +39,4 @@ function spiral(n) {
 	}
 	return results
 }
-spiral(5)
+console.log(spiral(5))

@@ -1,31 +1,33 @@
-function perRecursive(starsString, replacements) {
+function getPermutations(starsStr, replaceWith) {
 	let result = []
 
-	function backtrack(index, currentStr) {
-		if (index === currentStr.length) {
-			result.push(currentStr)
+	function backtrack(index, permutation) {
+		// Base case
+		if (index === permutation.length) {
+			result.push(permutation)
 			return
 		}
 
-		let possibleCharacters = []
+		let letters = permutation[index]
 
-		if (currentStr[index] === '*') {
-			possibleCharacters = replacements
-		} else {
-			possibleCharacters = currentStr[index]
+		if (permutation[index] === '*') {
+			letters = replaceWith
 		}
 
-		for (let character of possibleCharacters) {
-			let newString = currentStr.slice(0, index) + character + currentStr.slice(index + 1)
-			backtrack(index + 1, newString)
+		for (let letter of letters) {
+			// let newStarsStr = permutation.slice(0, index) + letter + permutation.slice(index + 1)
+			let newStarsStr = permutation.split('')
+			newStarsStr[index] = letter
+			newStarsStr = newStarsStr.join('')
+			backtrack(index + 1, newStarsStr)
 		}
 	}
 
-	backtrack(0, starsString)
+	backtrack(0, starsStr)
 	return result
 }
 
-console.log(perRecursive('a*b*', 'cd')) // ["adbc", "adbd", "acbc", "acbd"]
+console.log(getPermutations('a*b*', 'cd')) // ["adbc", "adbd", "acbc", "acbd"]
 
 /*
 

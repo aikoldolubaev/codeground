@@ -8,10 +8,10 @@ console.log(factorial(4)) // Output: 24
 
 /*
 
-recursion(4)
-	4*recursion(4-1)
-		3*recursion(3-1)
-			2*recursion(2-1)
+factorial(4)
+	4*factorial(4-1)
+		3*factorial(3-1)
+			2*factorial(2-1)
 				1
 		2*1=2
 	3*2=6

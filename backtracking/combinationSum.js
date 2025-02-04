@@ -1,5 +1,5 @@
 function combinationSum(candidates, target) {
-	let result = []
+	const result = []
 
 	function backtrack(index, path, sum) {
 		if (sum === target) {

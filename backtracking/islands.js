@@ -90,6 +90,7 @@ const numIslands = (grid) => {
 		grid,
 	}
 }
+
 console.log(
 	numIslands([
 		['1', '1', '1', '1', '0'],

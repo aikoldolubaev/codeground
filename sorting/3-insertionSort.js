@@ -1,4 +1,4 @@
-const selectionSort = (list) => {
+const insertionSort = (list) => {
 	for (let i = 1; i < list.length; i++) {
 		const current = list[i]
 		for (let j = i - 1; j >= 0 && list[j] > current; j--) {
@@ -9,4 +9,4 @@ const selectionSort = (list) => {
 	return list
 }
 
-console.log(selectionSort([4, 3, 2, 1, 5, 7]))
+console.log(insertionSort([4, 3, 2, 1, 5, 7]))

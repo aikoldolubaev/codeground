@@ -1,3 +1,5 @@
+// This is implmented with input type of string whereas permutations input is array
+// Both could be solved with the same approach except this makes with an argument of string
 function generateAnagrams(str) {
   if (str.length <= 1) return [str];
 

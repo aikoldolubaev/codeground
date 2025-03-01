@@ -1,6 +1,3 @@
-//Find the longest substring length
-//input: 'abaabcdbc'; output: 4 =>'abcd'.length
-//input: 'ccccccccccc' output: 1 =>'c'.length
 const substringLength = (str) => {
 	const hash = {}
 	let left = 0
@@ -15,5 +12,9 @@ const substringLength = (str) => {
 	}
 	return max
 }
-substringLength('abaabcdbc') //4
-//substringLength('ccccccccccc');//4
+console.log(substringLength('abaabcdbc')) // 4
+//                              ^  ^
+console.log(substringLength('ccccccccccc')) // 1
+//                           ^^
+console.log(substringLength('aikol')) // 5
+//                           ^   ^

@@ -5,10 +5,11 @@ const substringLength = (str) => {
 	for (let right = 0; right < str.length; right++) {
 		let currentChar = str[right]
 		if (hash[currentChar] >= left) {
-			left = hash[currentChar] + 1 // adding 1 because of index
+			// If the character is already in the hash, move the left pointer to the right of the last occurrence
+			left = hash[currentChar] + 1
 		}
 		hash[currentChar] = right
-		max = Math.max(max, right - left + 1) // sliding window
+		max = Math.max(max, right - left + 1) // Sliding window, "+1" because we're using indexes
 	}
 	return max
 }

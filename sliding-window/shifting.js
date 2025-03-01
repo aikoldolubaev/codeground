@@ -1,10 +1,14 @@
-//find the biggest subset
-const subset = (arr, num) => {
+// find the biggest sum of the contiguous subset of elements of the array
+/* BRUTE FORCE */
+const maxContiguousSum = (arr, num) => {
 	let max = 0
+	// arr.length-num+1 to avoid out of bounds
 	for (let i = 0; i < arr.length - num + 1; i++) {
 		let temp = 0
+		// For loop to sum the numbers
 		for (let j = 0; j < num; j++) {
-			temp += arr[i + j] //temp kelip each element-ti kowoberet
+			// i+j to move the window
+			temp += arr[i + j]
 		}
 		if (temp > max) {
 			max = temp
@@ -12,17 +16,19 @@ const subset = (arr, num) => {
 	}
 	return max
 }
-subset([1, 6, 5, 2, 5, 3, 8], 2) //11
+console.log(maxContiguousSum([1, 6, 5, 2, 5, 3, 10], 2)) // 3+10=11
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const subset2 = (arr, num) => {
-	let max = 0 //7
-	let temp = 0 //0
+/* Sliding Window */
+const subsetWithSlidingWindow = (arr, num) => {
+	let max = 0
+	let temp = 0
 	for (let i = 0; i < num; i++) {
-		max += arr[i] //1+6=7
+		max += arr[i]
 	}
-	temp = max //7
+	temp = max
 	for (let i = num; i < arr.length; i++) {
 		temp = temp - arr[i - num] + arr[i] //current - prev + next
 		if (max < temp) {
@@ -31,4 +37,4 @@ const subset2 = (arr, num) => {
 	}
 	return max
 }
-subset2([1, 6, 5, 2, 5, 3, 8], 2) //11
+console.log(subsetWithSlidingWindow([1, 6, 5, 2, 5, 3, 10], 2)) //11

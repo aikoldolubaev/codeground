@@ -1,4 +1,4 @@
-const oldStyle = (num) => {
+const integerToRoman = (num) => {
 	const format = {
 		M: 100,
 		CM: 900,
@@ -12,16 +12,16 @@ const oldStyle = (num) => {
 		IX: 9,
 		V: 5,
 		IV: 4,
-		I: 1
-	};
-	let roman = '';
+		I: 1,
+	}
+	let roman = ''
 	for (key in format) {
 		while (num >= format[key]) {
-			roman += key;//   ""+I
-			num -= format[key];// 3-1
+			roman += key
+			num -= format[key]
 		}
 	}
-	return roman;
-};
+	return roman
+}
 
-oldStyle(3);
+integerToRoman(3)

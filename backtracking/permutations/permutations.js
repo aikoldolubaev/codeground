@@ -24,5 +24,5 @@ const permute = (arr) => {
 }
 
 // Example usage:
-console.log(permute([1, 2])) // 2*1=2 permutations
 console.log(permute([1, 2, 3])) // 3*2*1=6 permutations
+console.log(permute([1, 2])) // 2*1=2 permutations

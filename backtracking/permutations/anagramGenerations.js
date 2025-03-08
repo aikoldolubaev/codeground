@@ -15,5 +15,25 @@ function generateAnagrams(str) {
 }
 
 // Example usage:
-console.log(generateAnagrams('aab')) // [ 'aab', 'aba', 'baa' ]
+// console.log(generateAnagrams('aab')) // [ 'aab', 'aba', 'baa' ]
 console.log(generateAnagrams('abc')) // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+
+/*
+
+                "abc"
+            /      |      \
+        a(bc)     b(ac)   c(ab)
+        /   \       /   \       /   \
+    ab(c) ac(b) ba(c) bc(a) ca(b) cb(a)
+    |       |       |       |       |       |
+    abc   acb   bac   bca   cab   cba
+
+
+
+
+
+
+
+
+
+*/

@@ -20,20 +20,36 @@ console.log(generateAnagrams('abc')) // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cb
 
 /*
 
-                "abc"
+************** Recursion Tree **************
+generateAnagrams("abc")
+├── 'a' + generateAnagrams("bc")
+│   ├── 'b' + generateAnagrams("c") → ['c'] → ['bc']
+│   ├── 'c' + generateAnagrams("b") → ['b'] → ['cb']
+│   └── Result: ['abc', 'acb']
+│
+├── 'b' + generateAnagrams("ac")
+│   ├── 'a' + generateAnagrams("c") → ['c'] → ['ac']
+│   ├── 'c' + generateAnagrams("a") → ['a'] → ['ca']
+│   └── Result: ['bac', 'bca']
+│
+├── 'c' + generateAnagrams("ab")
+│   ├── 'a' + generateAnagrams("b") → ['b'] → ['ab']
+│   ├── 'b' + generateAnagrams("a") → ['a'] → ['ba']
+│   └── Result: ['cab', 'cba']
+│
+└── Final result: ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+
+
+
+/*
+************** Decision Tree **************
+                 "abc"
             /      |      \
-        a(bc)     b(ac)   c(ab)
-        /   \       /   \       /   \
-    ab(c) ac(b) ba(c) bc(a) ca(b) cb(a)
-    |       |       |       |       |       |
-    abc   acb   bac   bca   cab   cba
-
-
-
-
-
-
-
+        "bc"      "ac"     "ab"
+        /   \     /   \    /   \
+      "c"   "b" "c"   "a" "b"  "a"
+       |     |   |     |   |    |
+      abc   acb bac   bca  cab  cba
 
 
 */

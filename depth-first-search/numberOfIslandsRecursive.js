@@ -3,33 +3,33 @@ const numIslands = (grid) => {
 
 	let count = 0
 
-	const dfs = (grid, i, j) => {
+	const dfs = (grid, row, col) => {
 		// Base case
 		if (
-			i < 0 || // Out of top boundary
-			i >= grid.length || // Out of bottom boundary
-			j < 0 || // Out of left boundary
-			j >= grid[i].length || // Out of right boundary
-			grid[i][j] === '0' // Water or already visited
+			row < 0 || // Out of top boundary
+			row >= grid.length || // Out of bottom boundary
+			col < 0 || // Out of left boundary
+			col >= grid[row].length || // Out of right boundary
+			grid[row][col] === '0' // Water or already visited
 		) {
 			return
 		}
 
 		// Mark the cell as visited by setting it to '0'
-		grid[i][j] = '0'
+		grid[row][col] = '0'
 
 		// Visit all 4 adjacent cells
-		dfs(grid, i + 1, j) // down
-		dfs(grid, i - 1, j) // up
-		dfs(grid, i, j + 1) // right
-		dfs(grid, i, j - 1) // left
+		dfs(grid, row + 1, col) // down
+		dfs(grid, row - 1, col) // up
+		dfs(grid, row, col + 1) // right
+		dfs(grid, row, col - 1) // left
 	}
 
-	for (let i = 0; i < grid.length; i++) {
-		for (let j = 0; j < grid[i].length; j++) {
-			if (grid[i][j] === '1') {
+	for (let row = 0; row < grid.length; row++) {
+		for (let col = 0; col < grid[row].length; col++) {
+			if (grid[row][col] === '1') {
 				count++
-				dfs(grid, i, j)
+				dfs(grid, row, col)
 			}
 		}
 	}

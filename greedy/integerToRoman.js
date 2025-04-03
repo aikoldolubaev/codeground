@@ -1,5 +1,5 @@
 const integerToRoman = (num) => {
-	const format = {
+	const romanMap = {
 		M: 100,
 		CM: 900,
 		D: 500,
@@ -15,13 +15,13 @@ const integerToRoman = (num) => {
 		I: 1,
 	}
 	let roman = ''
-	for (key in format) {
-		while (num >= format[key]) {
+	for (key in romanMap) {
+		while (num >= romanMap[key]) {
 			roman += key
-			num -= format[key]
+			num -= romanMap[key]
 		}
 	}
 	return roman
 }
 
-integerToRoman(3)
+console.log(integerToRoman(5))

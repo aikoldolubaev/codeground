@@ -35,7 +35,10 @@ buyAndSellStockOptimization = (a) => {
 		maxProfit = Math.max(maxProfit, a[i] - minPrice) // Sell at current price if profitable
 	}
 
-	return maxProfit > 0 ? maxProfit : -1 // Return -1 if no profit is possible
+	if (maxProfit > 0) {
+		return maxProfit
+	}
+	return -1
 }
 
 console.log(buyAndSellStockOptimization([1, 2, 3, 4])) // 3 why? because we buy at 1 and sell at 4

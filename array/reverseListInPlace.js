@@ -1,6 +1,6 @@
-function reverseListInPlace(list) {
+const reverseListInPlace = (list) => {
 	for (var i = 0; i < list.length / 2; i++) {
-		var current = list[i]
+		let current = list[i]
 		list[i] = list[list.length - 1 - i]
 		list[list.length - 1 - i] = current
 	}

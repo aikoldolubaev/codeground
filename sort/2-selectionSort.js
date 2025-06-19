@@ -1,15 +1,18 @@
 const selectionSort = (arr) => {
 	for (let i = 0; i < arr.length; i++) {
-		let minsIndex = i
+		let minIndex = i
 		for (let j = i + 1; j < arr.length; j++) {
-			if (arr[j] < arr[minsIndex]) {
-				minsIndex = j
+			// Find the index of the minimum element
+			if (arr[j] < arr[minIndex]) {
+				minIndex = j
 			}
 		}
-		if (minsIndex !== i) {
+		// if the minimum element is not the current element
+		if (minIndex !== i) {
+			// Swap the found minimum element with the current element
 			let temp = arr[i]
-			arr[i] = arr[minsIndex]
-			arr[minsIndex] = temp
+			arr[i] = arr[minIndex]
+			arr[minIndex] = temp
 			// [arr[i], arr[minsIndex]] = [arr[minsIndex], arr[i]]
 		}
 	}

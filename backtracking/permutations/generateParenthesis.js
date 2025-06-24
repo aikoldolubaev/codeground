@@ -1,9 +1,9 @@
-function generateParenthesis(n) {
+function generateParenthesis(amount) {
 	const result = []
 
 	function backtrack(current, open, close) {
 		// If the current string is complete
-		if (current.length === n * 2) {
+		if (current.length === amount * 2) {
 			// why n * 2? Because we need n open and n close parentheses
 			// Push a shallow copy of `current` to avoid storing the reference.
 			result.push(current)
@@ -11,7 +11,7 @@ function generateParenthesis(n) {
 		}
 
 		// If we can still add an open parenthesis
-		if (open < n) {
+		if (open < amount) {
 			// why open < n? Because we can only add n open parentheses
 			backtrack(current + '(', open + 1, close)
 		}

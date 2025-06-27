@@ -1,5 +1,26 @@
-Decision Tree
-```sh
+function generateAnagrams(str) {
+	if (str.length <= 1) return [str]
+
+	let anagrams = []
+	for (let i = 0; i < str.length; i++) {
+		let char = str[i]
+		let remainingStr = str.slice(0, i) + str.slice(i + 1)
+		let remainingAnagrams = generateAnagrams(remainingStr)
+
+		for (let anagram of remainingAnagrams) {
+			anagrams.push(char + anagram)
+		}
+	}
+	return [...new Set(anagrams)] // Remove duplicates
+}
+
+console.log(generateAnagrams('aab')) // [ 'aab', 'aba', 'baa' ]
+console.log(generateAnagrams('abc')) // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+
+/*
+
+Decision Tree:
+
                  "abc"
             /      |      \
         "bc"      "ac"     "ab"
@@ -8,9 +29,8 @@ Decision Tree
        |     |   |     |   |    |
       abc   acb bac   bca  cab  cba
 
-```
 
-## Recursion Tree
+Recursion Tree:
 ```yml
 generateAnagrams("abc")
     'a': generateAnagrams("bc")
@@ -24,4 +44,6 @@ anagrams=["abc", "acb]
 return: anagrams=["ac", "ca"]
 anagrams=["abc", "acb", "bac", "bca"]
 
-```
+
+
+*/

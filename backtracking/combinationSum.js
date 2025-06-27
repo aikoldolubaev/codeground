@@ -1,5 +1,3 @@
-
-
 function combinationSum(candidates, target) {
 	const result = []
 
@@ -12,7 +10,7 @@ function combinationSum(candidates, target) {
 
 		for (let i = index; i < candidates.length; i++) {
 			path.push(candidates[i])
-			backtrack(i, path, sum + candidates[i]) // reuse same number
+			backtrack(i, path, sum + candidates[i])
 			path.pop()
 		}
 	}
@@ -22,4 +20,3 @@ function combinationSum(candidates, target) {
 }
 
 console.log(combinationSum([2, 3, 6, 7], 7)) // [[2,2,3], [7]]
-

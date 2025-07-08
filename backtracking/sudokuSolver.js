@@ -1,7 +1,7 @@
 function solveSudoku(board) {
 	const isValid = (r, c, ch) => {
-		const blockRow = 3 * Math.floor(r / 3),
-			blockCol = 3 * Math.floor(c / 3)
+		const blockRow = 3 * Math.floor(r / 3)
+		const blockCol = 3 * Math.floor(c / 3)
 		for (let i = 0; i < 9; i++) {
 			if (board[r][i] === ch) return false
 			if (board[i][c] === ch) return false

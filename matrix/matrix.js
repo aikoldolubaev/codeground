@@ -1,10 +1,10 @@
-const spiral = n => {
+const spiral = (n) => {
 	let results = []
 
 	for (let i = 0; i < n; i++) {
 		results.push([])
 	}
-    
+
 	let counter = 1
 	let start = 0
 	let end = n - 1

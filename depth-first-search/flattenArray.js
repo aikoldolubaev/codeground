@@ -18,13 +18,13 @@ const flatten = (arr) => {
 console.log(flatten([1, [[[[[2]]]]], [[3]], [[[4]]]])) // [ 1, 2, 3, 4 ]
 
 // With Recursion
-const flattenWithRecursion = (arr) => {
+const recursivelyFlatten = (arr) => {
 	let result = []
 	for (let i = 0; i < arr.length; i++) {
-		if (Array.isArray(arr[i])) result = result.concat(flattenWithRecursion(arr[i]))
+		if (Array.isArray(arr[i])) result = result.concat(recursivelyFlatten(arr[i]))
 		else result.push(arr[i])
 	}
 	return result
 }
 
-flattenWithRecursion([1, [2], [[3]], [[[4]]]]) //[ 1, 2, 3, 4 ]
+recursivelyFlatten([1, [2], [[3]], [[[4]]]]) //[ 1, 2, 3, 4 ]

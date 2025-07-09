@@ -26,3 +26,28 @@ const permute = (arr) => {
 // Example usage:
 console.log(permute([1, 2, 3])) // 3*2*1=6 permutations
 console.log(permute([1, 2])) // 2*1=2 permutations
+
+const permuteIterative = (arr) => {
+	let permutations = [[]]
+
+	for (const num of arr) {
+		const nextPermutations = []
+
+		for (const perm of permutations) {
+			for (let i = 0; i <= perm.length; i++) {
+				const newPerm = [...perm.slice(0, i), num, ...perm.slice(i)]
+				nextPermutations.push(newPerm)
+			}
+		}
+
+		permutations = nextPermutations
+	}
+
+	return permutations
+}
+
+// Example usage:
+const result = JSON.stringify(permuteIterative([1, 2, 3]))
+console.log(result) // [[3,2,1],[2,3,1],[2,1,3],[3,1,2],[1,3,2],[1,2,3]]
+const result2 = JSON.stringify(permuteIterative([1, 2]))
+console.log(result2) //[[2,1],[1,2]]

@@ -19,14 +19,3 @@ function backwardsMultiplicationTableOfFive(number) {
 	}
 }
 backwardsMultiplicationTableOfFive(50) //output:5
-
-//Factorial;  5*4*3*2*1=120; 4*3*2*1=24; 3*2*1=6
-function factorial(number) {
-	if (number == 1) {
-		return number
-	} else {
-		console.log(number)
-		return number * factorial(number - 1)
-	}
-}
-factorial(5) //output:24

@@ -2,7 +2,7 @@ const factorial = (number) => {
 	if (number == 1) {
 		return number
 	}
-	return number * recursion(number - 1)
+	return number * factorial(number - 1)
 }
 console.log(factorial(4)) // Output: 24
 

@@ -1,3 +1,5 @@
+// LeetCode: https://leetcode.com/problems/coin-change/description/
+
 function minChange(coins, length, total) {
 	if (total === 0) {
 		// base case

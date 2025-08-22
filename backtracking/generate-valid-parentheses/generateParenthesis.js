@@ -1,3 +1,5 @@
+// Leetcode: https://leetcode.com/problems/generate-parentheses/description/
+
 function generateParenthesis(amount) {
 	const result = []
 

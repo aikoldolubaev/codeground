@@ -1,3 +1,5 @@
+// Leetcode: https://leetcode.com/problems/permutations/description/
+
 const permutations = (arr) => {
 	const result = []
 

@@ -1,3 +1,8 @@
+/*
+ LeetCode 79. Word Search
+    https://leetcode.com/problems/word-search/description/
+*/
+
 const wordSearch = (board, word) => {
 	const rows = board.length
 	const cols = board[0].length

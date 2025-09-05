@@ -1,3 +1,5 @@
+const consoleLog = require('../consoleLog')
+
 // LeetCode 332: Reconstruct Itinerary
 // https://leetcode.com/problems/reconstruct-itinerary/
 
@@ -26,8 +28,7 @@ function findItinerary(tickets) {
 	return flightRoute.reverse()
 }
 
-// Example:
-console.log(
+consoleLog(
 	findItinerary([
 		['MUC', 'LHR'],
 		['JFK', 'MUC'],
@@ -35,8 +36,9 @@ console.log(
 		['LHR', 'SFO'],
 	])
 )
+
 // -> ["JFK","MUC","LHR","SFO","SJC"]
-console.log(
+consoleLog(
 	findItinerary([
 		['JFK', 'SFO'],
 		['JFK', 'ATL'],

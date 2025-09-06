@@ -38,14 +38,4 @@ const board1 = [
 	['A', 'D', 'E', 'E'],
 ]
 console.log(wordSearch(board1, 'ABCCED')) // true
-console.log(wordSearch(board1, 'SEE')) // true
-console.log(wordSearch(board1, 'ABCB')) // false
-
-// const board2 = [
-// 	['C', 'A', 'A'],
-// 	['A', 'A', 'A'],
-// 	['B', 'C', 'D'],
-// ]
-// console.log(wordSearch(board2, 'AAB')) // true
-// console.log(wordSearch(board2, 'CAA')) // true
-// console.log(wordSearch(board2, 'CAD')) // false
+console.log(wordSearch(board1, 'ABCF')) // false

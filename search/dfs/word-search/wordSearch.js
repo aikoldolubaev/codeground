@@ -1,32 +1,30 @@
 /*
- LeetCode 79. Word Search
-    https://leetcode.com/problems/word-search/description/
-*/
+ * LeetCode 79. Word Search
+ * https://leetcode.com/problems/word-search/description/
+ */
 
 const wordSearch = (board, word) => {
-	const rows = board.length
-	const cols = board[0].length
-
 	const dfs = (row, col, wordIndex) => {
 		if (wordIndex === word.length) return true // Word found
-		if (row < 0 || col < 0 || row >= rows || col >= cols || board[row][col] !== word[wordIndex]) return false
+		if (row < 0 || col < 0 || row >= board.length || col >= board[0].length || board[row][col] !== word[wordIndex])
+			return false
 
 		const temp = board[row][col]
 		board[row][col] = '#' // Mark as visited
 
 		const found =
-			dfs(row + 1, col, wordIndex + 1) ||
-			dfs(row - 1, col, wordIndex + 1) ||
-			dfs(row, col + 1, wordIndex + 1) ||
-			dfs(row, col - 1, wordIndex + 1)
+			dfs(row + 1, col, wordIndex + 1) || // Down
+			dfs(row - 1, col, wordIndex + 1) || // Up
+			dfs(row, col + 1, wordIndex + 1) || // Right
+			dfs(row, col - 1, wordIndex + 1) // Left
 
 		board[row][col] = temp // Restore cell
 
 		return found
 	}
 
-	for (let row = 0; row < rows; row++) {
-		for (let col = 0; col < cols; col++) {
+	for (let row = 0; row < board.length; row++) {
+		for (let col = 0; col < board[0].length; col++) {
 			if (dfs(row, col, 0)) return true
 		}
 	}

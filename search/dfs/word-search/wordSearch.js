@@ -3,14 +3,21 @@
  * https://leetcode.com/problems/word-search/description/
  */
 
-const wordSearch = (board, word) => {
+const wordSearch = (grid, word) => {
 	const dfs = (row, col, wordIndex) => {
 		if (wordIndex === word.length) return true // Word found
-		if (row < 0 || col < 0 || row >= board.length || col >= board[0].length || board[row][col] !== word[wordIndex])
+		if (
+			row < 0 || // Top boundary
+			row >= grid.length || // Bottom boundary
+			col < 0 || // Left boundary
+			col >= grid[0].length || // Right boundary
+			grid[row][col] === '#' || // Already visited
+			grid[row][col] !== word[wordIndex] // Character mismatch
+		)
 			return false
 
-		const temp = board[row][col]
-		board[row][col] = '#' // Mark as visited
+		const temp = grid[row][col] // Store current cell to restore later
+		grid[row][col] = '#' // Mark as visited
 
 		const found =
 			dfs(row + 1, col, wordIndex + 1) || // Down
@@ -18,13 +25,13 @@ const wordSearch = (board, word) => {
 			dfs(row, col + 1, wordIndex + 1) || // Right
 			dfs(row, col - 1, wordIndex + 1) // Left
 
-		board[row][col] = temp // Restore cell
+		grid[row][col] = temp // Restore cell
 
 		return found
 	}
 
-	for (let row = 0; row < board.length; row++) {
-		for (let col = 0; col < board[0].length; col++) {
+	for (let row = 0; row < grid.length; row++) {
+		for (let col = 0; col < grid[0].length; col++) {
 			if (dfs(row, col, 0)) return true
 		}
 	}

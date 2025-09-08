@@ -1,7 +1,3 @@
-// MaxHeap is a binary heap data structure where the parent node is always greater than or equal to its child nodes.
-// This ensures that the largest element is always at the root (index 0) of the heap array.
-// The main operations are insert (adds a new element and maintains the heap property) and extractMax (removes and returns the largest element).
-// The heap is implemented using an array for efficient access and manipulation.
 class MaxHeap {
 	constructor() {
 		this.heap = []
@@ -65,7 +61,6 @@ class MaxHeap {
 		console.log(this.heap)
 	}
 
-	// Delete a specific value from the heap
 	delete(value) {
 		const index = this.heap.indexOf(value)
 		if (index === -1) return false // Value not found

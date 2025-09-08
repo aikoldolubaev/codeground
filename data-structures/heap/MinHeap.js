@@ -1,13 +1,8 @@
-// MinHeap is a binary heap data structure where the parent node is always less than or equal to its child nodes.
-// This ensures that the smallest element is always at the root (index 0) of the heap array.
-// The main operations are insert (adds a new element and maintains the heap property) and extractMin (removes and returns the smallest element).
-// The heap is implemented using an array for efficient access and manipulation.
 class MinHeap {
 	constructor() {
 		this.heap = []
 	}
 
-	// Get parent/child indices
 	getParentIndex(i) {
 		return Math.floor((i - 1) / 2)
 	}
@@ -18,18 +13,15 @@ class MinHeap {
 		return 2 * i + 2
 	}
 
-	// Swap helper
 	swap(i, j) {
 		;[this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]]
 	}
 
-	// Insert value into heap
 	insert(value) {
 		this.heap.push(value)
 		this.heapifyUp()
 	}
 
-	// Heapify up (to maintain heap property)
 	heapifyUp() {
 		let index = this.heap.length - 1
 		while (index > 0) {
@@ -73,7 +65,6 @@ class MinHeap {
 		console.log(this.heap)
 	}
 
-	// Delete a specific value from the heap
 	delete(value) {
 		const index = this.heap.indexOf(value)
 		if (index === -1) return false // Value not found

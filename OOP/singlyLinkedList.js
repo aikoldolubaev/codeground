@@ -1,3 +1,4 @@
+
 class Node {
     constructor(val){
         this.next = null;

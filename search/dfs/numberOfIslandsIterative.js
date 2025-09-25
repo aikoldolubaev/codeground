@@ -1,11 +1,10 @@
 function numberOfIslands(grid) {
 	let count = 0
 
-	// Loop through each cell in the grid
 	for (let row = 0; row < grid.length; row++) {
 		for (let col = 0; col < grid[0].length; col++) {
-			// Check if the current cell is part of an island ('1')
 			if (grid[row][col] === '1') {
+				count++
 				const stack = [[row, col]] // Initialize stack with the current cell
 
 				// Perform iterative DFS using the stack
@@ -14,11 +13,11 @@ function numberOfIslands(grid) {
 
 					// Ensure the cell is within bounds and unvisited land
 					if (
-						currentRow >= 0 &&
-						currentRow < grid.length && // Check row boundaries
-						currentCol >= 0 &&
-						currentCol < grid[0].length && // Check column boundaries
-						grid[currentRow][currentCol] === '1' // Check if land
+						currentRow >= 0 && // top boundary
+						currentRow < grid.length && // bottom boundary
+						currentCol >= 0 && // left boundary
+						currentCol < grid[0].length && // right boundary
+						grid[currentRow][currentCol] === '1' // land
 					) {
 						grid[currentRow][currentCol] = '0' // Mark as visited
 
@@ -29,8 +28,6 @@ function numberOfIslands(grid) {
 						stack.push([currentRow, currentCol - 1]) // Left
 					}
 				}
-
-				count++ // Increment the island count after fully exploring one
 			}
 		}
 	}

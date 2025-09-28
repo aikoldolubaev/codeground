@@ -4,6 +4,7 @@ const substringLength = (str) => {
 	let max = 0
 	for (let right = 0; right < str.length; right++) {
 		let currentChar = str[right]
+		// if the character is already in the hash and its index is within the current window
 		if (hash[currentChar] >= left) {
 			// If the character is already in the hash, move the left pointer to the right of the last occurrence
 			left = hash[currentChar] + 1

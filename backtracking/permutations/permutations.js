@@ -6,8 +6,6 @@ const permutations = (arr) => {
 	function backtrack(temp, remaining) {
 		// Base case
 		if (temp.length === arr.length) {
-			// Push a shallow copy of `temp` to avoid storing the reference.
-			// Without this, `result` would hold references to the same array, which changes during recursion.
 			result.push([...temp])
 
 			return

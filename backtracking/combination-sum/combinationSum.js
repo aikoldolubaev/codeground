@@ -1,11 +1,11 @@
 // LeetCode: https://leetcode.com/problems/combination-sum/description/
 
 function combinationSum(candidates, target) {
-	const result = []
+	const combinations = []
 
 	function backtrack(index, path, sum) {
 		if (sum === target) {
-			result.push([...path])
+			combinations.push([...path])
 			return
 		}
 		if (sum > target) return
@@ -18,7 +18,7 @@ function combinationSum(candidates, target) {
 	}
 
 	backtrack(0, [], 0)
-	return result
+	return combinations
 }
 
 console.log(combinationSum([2, 3, 6, 7], 7)) // [[2,2,3], [7]]

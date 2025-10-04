@@ -48,3 +48,15 @@ consoleLog(
 	])
 )
 // -> ["JFK","ATL","JFK","SFO","ATL","SFO"]
+
+function backtrack() {
+	if (path.length === items.length) return results.push([...path])
+
+	for (let choice of items) {
+		if (isValid(choice, path)) {
+			path.push(choice)
+			backtrack()
+			path.pop()
+		}
+	}
+}

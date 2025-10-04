@@ -1,25 +1,50 @@
-## 🏁 Recommended Order to Practice
-- ✅ Subsets → easiest (no conditions)
-- 🔁 Permutations → order matters
-- ➕ Combination Sum → add target conditions
-- ♟️ N-Queens → constraints + grid logic
-- 🧩 Sudoku Solver → advanced constraints
+# Backtracking
+Backtracking explores all possible solutions by making and undoing choices.
+It comes in two main styles:
 
+
+## 1. Choices (Binary Decision)
+Used when each step has two options — take or skip.
+```js
+function backtrack(index) {
+    // Base case
+    if (index === nums.length) {
+        subsets.push([...stack])
+        return
+    }
+
+    // As is
+    backtrack(index + 1)
+
+    // Include nums[index]
+    stack.push(nums[index])
+    backtrack(index + 1)
+    stack.pop() // Undo the choice (backtrack)
+}
+```
+
+## 2. Iterative (Looping)
+Used when you try all candidates in a loop.
 
 ```js
-function backtrack(path, options) {
-	if (goalReached(path)) {
-		result.push([...path]) // store a valid solution
+function backtrack(path, candidates) {
+	// Base case
+	if (path.length === original.length) {
+		result.push([...path])
 		return
 	}
 
-	for (let choice of options) {
-		if (isValid(choice, path)) {
-			path.push(choice) // make a choice
-			backtrack(path, options) // explore
-			path.pop() // undo the choice (backtrack)
-		}
+	for (let i = 0; i < candidates.length; i++) {
+		path.push(candidates[i])
+		const newRemaining = candidates.filter((_, index) => index !== i)
+		backtrack(path, newRemaining)
+		path.pop()
 	}
 }
 
 ```
+
+| Style         | Use Case               | Examples                 |
+| ------------- | ---------------------- | ------------------------ |
+| **Choices**   | Two decisions per step | Subsets, Combination Sum |
+| **Iterative** | Loop over options      | Permutations, N-Queens   |

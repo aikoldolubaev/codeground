@@ -19,8 +19,7 @@ function generateSubsets(nums) {
 }
 
 // Example usage
-console.log(generateSubsets([1]))
-const output1 = [[], [1]]
+console.log(generateSubsets([1])) // [[], [1]]
 
 console.log(generateSubsets([1, 2, 3]))
 const output2 = [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]

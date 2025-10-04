@@ -37,7 +37,7 @@ function generateSubsets(nums) {
 			return
 		}
 
-		// Exclude nums[index]
+		// Exclude nums[index] - As is
 		backtrack(index + 1)
 
 		// Include nums[index]

@@ -43,7 +43,7 @@ function backtrack(path, candidates) {
 }
 
 ```
-
+## Summary
 | Style         | Use Case               | Examples                 |
 | ------------- | ---------------------- | ------------------------ |
 | **Choices**   | Two decisions per step | Subsets, Combination Sum |

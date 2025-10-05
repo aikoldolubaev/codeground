@@ -23,7 +23,7 @@ function generateSubsets(nums) {
 		// Include nums[index]
 		stack.push(nums[index])
 		backtrack(index + 1)
-        
+
 		stack.pop() // Undo the choice (backtrack)
 	}
 
@@ -46,7 +46,6 @@ const permutations = (options) => {
 		// Base case
 		if (path.length === options.length) {
 			result.push([...path])
-
 			return
 		}
 

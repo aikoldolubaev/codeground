@@ -32,7 +32,6 @@ function generateSubsets(nums) {
 }
 
 generateSubsets([1]) // [[], [1]]
-
 ```
 
 ## 2. Iterative (Looping)
@@ -62,7 +61,6 @@ const permutations = (options) => {
 }
 
 permutations([1, 2]) // [[1, 2], [2, 1]]
-
 ```
 ## Summary
 | Style         | Use Case               | Examples                 |

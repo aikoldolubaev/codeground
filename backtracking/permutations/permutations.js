@@ -1,28 +1,32 @@
 // Leetcode: https://leetcode.com/problems/permutations/description/
 
-const permutations = (arr) => {
+const consoleLog = require('../../consoleLog')
+
+const permutations = (options) => {
 	const result = []
 
-	function backtrack(temp, remaining) {
+	function backtrack(path, candidates) {
 		// Base case
-		if (temp.length === arr.length) {
-			result.push([...temp])
+		if (path.length === options.length) {
+			result.push([...path])
 
 			return
 		}
 
-		for (let i = 0; i < remaining.length; i++) {
-			temp.push(remaining[i])
-			const newRemaining = remaining.slice(0, i).concat(remaining.slice(i + 1))
-			backtrack(temp, newRemaining)
-			temp.pop()
+		for (let i = 0; i < candidates.length; i++) {
+			path.push(candidates[i])
+			const remaining = candidates.slice(0, i).concat(candidates.slice(i + 1))
+			backtrack(path, remaining)
+			path.pop()
 		}
 	}
 
-	backtrack([], arr)
+	backtrack([], options)
 	return result
 }
 
 // Example usage:
-console.log(permutations([1, 2, 3])) // 3*2*1=6 permutations
-console.log(permutations([1, 2])) // 2*1=2 permutations
+// 2*1=2 permutations
+consoleLog(permutations([1, 2])) // [[1, 2], [2, 1]]
+// 3*2*1=6
+consoleLog(permutations([1, 2, 3])) // [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]

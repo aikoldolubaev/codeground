@@ -9,7 +9,6 @@ const permutations = (options) => {
 		// Base case
 		if (path.length === options.length) {
 			result.push([...path])
-
 			return
 		}
 

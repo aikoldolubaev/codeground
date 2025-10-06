@@ -1,11 +1,10 @@
-// with Choices
-function generateSubsets(nums) {
+function generateSubsets(options) {
 	const subsets = []
 	const stack = []
 
 	function backtrack(index) {
 		// Base case
-		if (index === nums.length) {
+		if (index === options.length) {
 			subsets.push([...stack])
 			return
 		}
@@ -14,7 +13,7 @@ function generateSubsets(nums) {
 		backtrack(index + 1)
 
 		// Include nums[index]
-		stack.push(nums[index])
+		stack.push(options[index])
 		backtrack(index + 1)
 
 		stack.pop() // Undo the choice (backtrack)

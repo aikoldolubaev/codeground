@@ -22,9 +22,9 @@ function generateParenthesis(amount) {
 	return result
 }
 
+console.log(generateParenthesis(1)) // ["()"] // = 1 combination
 console.log(generateParenthesis(3)) // ["((()))","(()())","(())()","()(())","()()()"] = 5 combinations
 console.log(generateParenthesis(2)) // ["(())","()()"]  // = 2 combinations
-console.log(generateParenthesis(1)) // ["()"] // = 1 combination
 
 /*
 1.  backtrack('', 0, 0)

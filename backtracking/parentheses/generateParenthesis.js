@@ -4,15 +4,16 @@ function generateParenthesis(amount) {
 	const result = []
 
 	function backtrack(current, open, close) {
+		// Base case: each pair has 2 characters
 		if (current.length === amount * 2) {
 			result.push(current)
 			return
 		}
-
+		// If we can still add an opening bracket, do it
 		if (open < amount) {
 			backtrack(current + '(', open + 1, close)
 		}
-
+		// If we can add a closing bracket, do it
 		if (close < open) {
 			backtrack(current + ')', open, close + 1)
 		}

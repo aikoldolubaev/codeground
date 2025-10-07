@@ -21,5 +21,5 @@ function combinationSum(candidates, target) {
 	return combinations
 }
 
+console.log(combinationSum([2, 1], 2)) // [[2], [1,1]]
 console.log(combinationSum([2, 3, 6, 7], 7)) // [[2,2,3], [7]]
-console.log(combinationSum([2, 1], 2))

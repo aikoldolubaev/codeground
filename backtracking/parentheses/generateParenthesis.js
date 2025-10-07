@@ -3,19 +3,19 @@
 function generateParenthesis(amount) {
 	const result = []
 
-	function backtrack(current, open, close) {
+	function backtrack(parenthesis, open, close) {
 		// Base case: each pair has 2 characters
-		if (current.length === amount * 2) {
-			result.push(current)
+		if (parenthesis.length === amount * 2) {
+			result.push(parenthesis)
 			return
 		}
 		// If we can still add an opening bracket, do it
 		if (open < amount) {
-			backtrack(current + '(', open + 1, close)
+			backtrack(parenthesis + '(', open + 1, close)
 		}
 		// If we can add a closing bracket, do it
 		if (close < open) {
-			backtrack(current + ')', open, close + 1)
+			backtrack(parenthesis + ')', open, close + 1)
 		}
 	}
 

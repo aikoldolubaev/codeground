@@ -4,23 +4,23 @@ function combinationSum(candidates, target) {
 	const res = []
 	const path = []
 
-	function backtrack(i, remain) {
-		// 🎯 Base cases
-		if (remain === 0) {
+	function backtrack(index, remaining) {
+		// Base cases
+		if (remaining === 0) {
 			res.push([...path])
 			return
 		}
 
 		// Out of bounds or negative remainder
-		if (i === candidates.length || remain < 0) return
+		if (index === candidates.length || remaining < 0) return
 
-		// ✅ Choice 1: include
-		path.push(candidates[i])
-		backtrack(i, remain - candidates[i])
+		// As is
+		backtrack(index + 1, remaining) // move to next
+
+		// Include
+		path.push(candidates[index])
+		backtrack(index, remaining - candidates[index])
 		path.pop() // undo the choice
-
-		// 🚫 Choice 2: skip
-		backtrack(i + 1, remain) // move to next
 	}
 
 	backtrack(0, target)
@@ -28,4 +28,4 @@ function combinationSum(candidates, target) {
 }
 
 // Example
-consoleLog(combinationSum([2, 1], 3)) // [[2,1], [1,1,1]]
+consoleLog(combinationSum([2, 1], 2)) // [[1,1],[2]]

@@ -1,39 +1,39 @@
 // Palindrome Partitioning — backtracking + two-pointer palindrome check
 // https://leetcode.com/problems/palindrome-partitioning/
-function partition(inputString) {
-	const palindromePartitions = []
-	const segment = []
-	const inputStringLength = inputString.length
 
-	function isPalindrome(str, left, right) {
-		while (left < right) {
-			if (str[left] !== str[right]) return false
-			left++
-			right--
-		}
-		return true
+function isPalindrome(str, left, right) {
+	while (left < right) {
+		if (str[left] !== str[right]) return false
+		left++
+		right--
 	}
+	return true
+}
 
-	function dfs(partitionIndex) {
-		if (partitionIndex === inputStringLength) {
-			// used all chars → one valid cut
-			palindromePartitions.push(segment.slice())
+function palindromePartition(options) {
+	const partitions = []
+	const segment = []
+
+	function backtrack(index) {
+		if (index === options.length) {
+			partitions.push(segment.slice())
 			return
 		}
-		for (let j = partitionIndex; j < inputStringLength; j++) {
-			if (isPalindrome(inputString, partitionIndex, j)) {
-				// s[i..j] is palindrome?
-				segment.push(inputString.slice(partitionIndex, j + 1)) // choose
-				dfs(j + 1) // explore
-				segment.pop() // undo
+		for (let j = index; j < options.length; j++) {
+			if (isPalindrome(options, index, j)) {
+				segment.push(options.slice(index, j + 1))
+				backtrack(j + 1)
+				segment.pop() // backtrack
 			}
 		}
 	}
 
-	dfs(0)
-	return palindromePartitions
+	backtrack(0)
+	return partitions
 }
 
 // Quick tests
-console.log(partition('aab')) // [["a","a","b"], ["aa","b"]]
-console.log(partition('abba')) // [["a","b","b","a"], ["a","bb","a"], ["abba"]]
+console.log(palindromePartition('ab')) // [["a","b"]]
+
+console.log(palindromePartition('aab')) // [["a","a","b"], ["aa","b"]]
+console.log(palindromePartition('abba')) // [["a","b","b","a"], ["a","bb","a"], ["abba"]]

@@ -1,7 +1,7 @@
 // Palindrome Partitioning — backtracking + two-pointer palindrome check
 // https://leetcode.com/problems/palindrome-partitioning/
 
-function isPalindrome(str, left, right) {
+function checkPalindrome(str, left, right) {
 	while (left < right) {
 		if (str[left] !== str[right]) return false
 		left++
@@ -20,7 +20,7 @@ function palindromePartition(options) {
 			return
 		}
 		for (let j = index; j < options.length; j++) {
-			if (isPalindrome(options, index, j)) {
+			if (checkPalindrome(options, index, j)) {
 				segment.push(options.slice(index, j + 1))
 				backtrack(j + 1)
 				segment.pop() // backtrack
@@ -35,5 +35,5 @@ function palindromePartition(options) {
 // Quick tests
 console.log(palindromePartition('ab')) // [["a","b"]]
 
-console.log(palindromePartition('aab')) // [["a","a","b"], ["aa","b"]]
-console.log(palindromePartition('abba')) // [["a","b","b","a"], ["a","bb","a"], ["abba"]]
+// console.log(palindromePartition('aab')) // [["a","a","b"], ["aa","b"]]
+// console.log(palindromePartition('abba')) // [["a","b","b","a"], ["a","bb","a"], ["abba"]]

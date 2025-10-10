@@ -1,17 +1,17 @@
-function solveSudoku(board) {
-	const isValid = (r, c, ch) => {
-		const blockRow = 3 * Math.floor(r / 3)
-		const blockCol = 3 * Math.floor(c / 3)
-		for (let i = 0; i < 9; i++) {
-			if (board[r][i] === ch) return false
-			if (board[i][c] === ch) return false
-			const rr = blockRow + Math.floor(i / 3),
-				cc = blockCol + (i % 3)
-			if (board[rr][cc] === ch) return false
-		}
-		return true
+const isValid = (r, c, ch) => {
+	const blockRow = 3 * Math.floor(r / 3)
+	const blockCol = 3 * Math.floor(c / 3)
+	for (let i = 0; i < 9; i++) {
+		if (board[r][i] === ch) return false
+		if (board[i][c] === ch) return false
+		const rr = blockRow + Math.floor(i / 3),
+			cc = blockCol + (i % 3)
+		if (board[rr][cc] === ch) return false
 	}
+	return true
+}
 
+function solveSudoku(board) {
 	const backtrack = () => {
 		for (let r = 0; r < 9; r++) {
 			for (let c = 0; c < 9; c++) {

@@ -1,7 +1,7 @@
 // Leetcode 3. Longest Substring Without Repeating Characters
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
-const substringLength = (str) => {
+const findLongestUniqueSubstring = (str) => {
 	const hash = {}
 	let left = 0
 	let max = 0
@@ -13,13 +13,12 @@ const substringLength = (str) => {
 			left = hash[currentChar] + 1
 		}
 		hash[currentChar] = right
-		max = Math.max(max, right - left + 1) // Sliding window, "+1" because we're using indexes
+		max = Math.max(max, right - left + 1) // Sliding window, length=(right−left)+1
 	}
 	return max
 }
-console.log(substringLength('abaabcdbc')) // 4
-//                              ^  ^
-console.log(substringLength('ccccccccccc')) // 1
-//                           ^^
-console.log(substringLength('aikol')) // 5
-//                           ^   ^
+
+console.log(findLongestUniqueSubstring('aia')) // 2 => 'ai'
+console.log(findLongestUniqueSubstring('abaabcdbc')) // 4b => 'abcd'
+console.log(findLongestUniqueSubstring('ccccccccccc')) // 1 => 'c'
+console.log(findLongestUniqueSubstring('aikol')) // 5 => 'aikol'

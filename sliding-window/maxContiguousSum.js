@@ -1,3 +1,8 @@
+// Leetcode 53. Maximum Subarray
+// https://leetcode.com/problems/maximum-subarray/description/
+// Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+// A subarray is a contiguous part of an array.
+
 // find the biggest sum of the contiguous subset of elements of the array
 /* BRUTE FORCE */
 const maxContiguousSum = (arr, num) => {

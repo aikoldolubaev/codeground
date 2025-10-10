@@ -1,3 +1,6 @@
+// Leetcode 796. Rotate String
+// https://leetcode.com/problems/rotate-string/description/
+
 const rotation = (str1, str2) => {
 	if (str1.length !== str2.length) {
 		return false

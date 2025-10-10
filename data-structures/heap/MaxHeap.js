@@ -1,3 +1,4 @@
+// K smallest elements, sorting, priority queue
 class MaxHeap {
 	constructor() {
 		this.heap = []

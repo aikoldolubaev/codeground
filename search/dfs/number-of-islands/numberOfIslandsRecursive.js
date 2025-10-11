@@ -1,6 +1,6 @@
-const numIslands = (grid) => {
-	if (!grid || grid.length === 0) return 0
+const consoleLog = require('../../../consoleLog')
 
+const numIslands = (grid) => {
 	let count = 0
 
 	const dfs = (grid, row, col) => {
@@ -34,17 +34,21 @@ const numIslands = (grid) => {
 		}
 	}
 
-	return {
-		count,
-		grid,
-	}
+	return { count, grid }
 }
 
-console.log(
+consoleLog(
 	numIslands([
-		['1', '1', '1', '1', '0'],
-		['1', '1', '0', '1', '0'],
-		['1', '1', '0', '0', '1'],
-		['0', '0', '0', '0', '1'],
+		['1', '0'],
+		['1', '1'],
 	])
-) // Output: { count: 2, grid: [...] }
+) // {"count":1,"grid":[["0","0"],["0","0"]]}
+
+// console.log(
+// 	numIslands([
+// 		['1', '1', '1', '1', '0'],
+// 		['1', '1', '0', '1', '0'],
+// 		['1', '1', '0', '0', '1'],
+// 		['0', '0', '0', '0', '1'],
+// 	])
+// ) // 2

@@ -10,19 +10,20 @@ function checkPalindrome(str, left, right) {
 	return true
 }
 
-function palindromePartition(options) {
+function palindromePartition(chars) {
 	const partitions = []
 	const segment = []
 
 	function backtrack(index) {
-		if (index === options.length) {
+		if (index === chars.length) {
 			partitions.push(segment.slice())
 			return
 		}
-		for (let j = index; j < options.length; j++) {
-			if (checkPalindrome(options, index, j)) {
-				segment.push(options.slice(index, j + 1))
-				backtrack(j + 1)
+
+		for (let i = index; i < chars.length; i++) {
+			if (checkPalindrome(chars, index, i)) {
+				segment.push(chars.slice(index, i + 1))
+				backtrack(i + 1)
 				segment.pop() // backtrack
 			}
 		}

@@ -5,7 +5,9 @@
 
 const wordSearch = (board, word) => {
 	const dfs = (row, col, wordIndex) => {
+		// Base case
 		if (wordIndex === word.length) return true // Word found
+
 		if (
 			row < 0 || // Top boundary
 			row >= board.length || // Bottom boundary
@@ -14,6 +16,7 @@ const wordSearch = (board, word) => {
 			board[row][col] === '#' || // Already visited
 			board[row][col] !== word[wordIndex] // Character mismatch
 		)
+			// Exit
 			return false
 
 		const temp = board[row][col] // Store current cell to restore later

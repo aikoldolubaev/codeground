@@ -32,17 +32,30 @@ const wordSearch = (board, word) => {
 
 	for (let row = 0; row < board.length; row++) {
 		for (let col = 0; col < board[0].length; col++) {
-			if (dfs(row, col, 0)) return true
+			if (dfs(row, col, 0)) return { found: true, board }
 		}
 	}
 
-	return false
+	return { found: false, board }
 }
+
+console.log(
+	wordSearch(
+		[
+			['A', 'B'],
+			['C', 'D'],
+			['E', 'F'],
+			['G', 'H'],
+		],
+		'ACEFH'
+	)
+) // true
 
 const board1 = [
 	['A', 'B', 'C', 'E'],
 	['S', 'F', 'C', 'S'],
 	['A', 'D', 'E', 'E'],
 ]
+
 console.log(wordSearch(board1, 'ABCCED')) // true
 console.log(wordSearch(board1, 'ABCF')) // false

@@ -1,12 +1,9 @@
 /**
  * LeetCode 54. Spiral Matrix
  * https://leetcode.com/problems/spiral-matrix/description/
- * Given an m x n matrix, return all elements of the matrix in spiral order.
- * @param {number[][]} matrix
- * @return {number[]}
  */
 
-var spiralOrder = function (matrix) {
+const spiralOrder = (matrix) => {
 	const spirals = []
 
 	let top = 0
@@ -16,19 +13,19 @@ var spiralOrder = function (matrix) {
 
 	while (top <= bottom && left <= right) {
 		// go right: left to right
-		for (let i = left; i <= right; i++) spirals.push(matrix[top][i]) // top(^) is fixed
+		for (let i = left; i <= right; i++) spirals.push(matrix[top][i])
 		top++
 
 		// go down: top to bottom
-		for (let i = top; i <= bottom; i++) spirals.push(matrix[i][right]) // right(->) is fixed
+		for (let i = top; i <= bottom; i++) spirals.push(matrix[i][right])
 		right--
 
 		// go left: right to left
-		for (let i = right; i >= left; i--) spirals.push(matrix[bottom][i]) // bottom(_) is fixed
+		for (let i = right; i >= left; i--) spirals.push(matrix[bottom][i])
 		bottom--
 
 		// go up: bottom to top
-		for (let i = bottom; i >= top; i--) spirals.push(matrix[i][left]) // left(<-) is fixed
+		for (let i = bottom; i >= top; i--) spirals.push(matrix[i][left])
 		left++
 	}
 	return spirals

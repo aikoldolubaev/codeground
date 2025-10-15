@@ -23,19 +23,13 @@ var spiralOrder = function (matrix) {
 		for (let i = top; i <= bottom; i++) spirals.push(matrix[i][right]) // right(->) is fixed
 		right--
 
-		// go left
-		if (top <= bottom) {
-			// right to left
-			for (let i = right; i >= left; i--) spirals.push(matrix[bottom][i]) // bottom(_) is fixed
-			bottom--
-		}
+		// go left: right to left
+		for (let i = right; i >= left; i--) spirals.push(matrix[bottom][i]) // bottom(_) is fixed
+		bottom--
 
-		// go up
-		if (left <= right) {
-			// bottom to top
-			for (let i = bottom; i >= top; i--) spirals.push(matrix[i][left]) // left(<-) is fixed
-			left++
-		}
+		// go up: bottom to top
+		for (let i = bottom; i >= top; i--) spirals.push(matrix[i][left]) // left(<-) is fixed
+		left++
 	}
 	return spirals
 }

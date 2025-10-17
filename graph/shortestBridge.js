@@ -1,4 +1,6 @@
 // LeetCode 934. Shortest Bridge
+// https://leetcode.com/problems/shortest-bridge/description/
+
 function shortestBridge(grid) {
 	const directions = [
 		[1, 0],
@@ -7,7 +9,11 @@ function shortestBridge(grid) {
 		[0, -1],
 	]
 	const queue = []
-	const seen = Array.from({ length: grid.length }, () => Array(grid.ength).fill(false))
+
+	const seen = Array.from({ length: grid.length }, () => Array(grid.length).fill(false))
+	// Array.from({ length: grid.length }) => [undefined, undefined]
+	// Array(2).fill(false) => [false, false]
+	// Array.from({ length: 2 }, () => Array(2).fill(false)) ==> [[false, false], [false, false]]
 
 	// 1) Find and mark the first island; push all its cells into queue
 	let found = false
@@ -55,6 +61,13 @@ function shortestBridge(grid) {
 	}
 	return -1 // should not happen
 }
+
+console.log(
+	shortestBridge([
+		[0, 1],
+		[1, 0],
+	])
+) // 1
 
 console.log(
 	shortestBridge([

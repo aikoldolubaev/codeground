@@ -11,7 +11,7 @@ function shortestBridge(grid) {
 	const queue = []
 
 	const seen = Array.from({ length: grid.length }, () => Array(grid.length).fill(false))
-	// Array.from({ length: grid.length }) => [undefined, undefined]
+	// Array.from({ length: 2 }) => [undefined, undefined]
 	// Array(2).fill(false) => [false, false]
 	// Array.from({ length: 2 }, () => Array(2).fill(false)) ==> [[false, false], [false, false]]
 

@@ -1,4 +1,4 @@
-const consoleLog = require('../../../consoleLog')
+const consoleLog = require('../../consoleLog')
 
 const numIslands = (grid) => {
 	let count = 0

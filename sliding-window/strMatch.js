@@ -11,4 +11,5 @@ const strMatch = (candidates, pattern) => {
 	}
 	return times
 }
+
 console.log(strMatch('okbokoko', 'ok')) //3

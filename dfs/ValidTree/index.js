@@ -5,11 +5,13 @@
 
 function isValidTree(nodesCount, edges) {
 	// Build the graph as an adjacency list
-	const graph = Array.from({ length: nodesCount }, () => [])
+	const graph = Array.from({ length: nodesCount }, () => []) // [[],[],[],[],[]]
 	for (const [parentNode, childNode] of edges) {
 		graph[parentNode].push(childNode)
 		graph[childNode].push(parentNode)
 	}
+	// graph => [[1,2,3],[0,4],[0],[0],[1]]
+
 	// A valid tree should have exactly n-1 edges
 	if (edges.length !== nodesCount - 1) return false
 

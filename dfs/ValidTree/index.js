@@ -10,7 +10,7 @@ function isValidTree(nodesCount, edges) {
 		graph[parentNode].push(childNode)
 		graph[childNode].push(parentNode)
 	}
-	// graph => [[1,2,3],[0,4],[0],[0],[1]]
+	// graph: index based Ajecency List => [[1,2,3],[0,4],[0],[0],[1]]
 
 	// A valid tree should have exactly n-1 edges
 	if (edges.length !== nodesCount - 1) return false

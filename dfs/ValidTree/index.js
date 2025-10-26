@@ -6,9 +6,9 @@
 function isValidTree(nodesCount, edges) {
 	// Build the graph as an adjacency list
 	const graph = Array.from({ length: nodesCount }, () => [])
-	for (const [u, v] of edges) {
-		graph[u].push(v)
-		graph[v].push(u)
+	for (const [parentNode, childNode] of edges) {
+		graph[parentNode].push(childNode)
+		graph[childNode].push(parentNode)
 	}
 	// A valid tree should have exactly n-1 edges
 	if (edges.length !== nodesCount - 1) return false
@@ -22,6 +22,7 @@ function isValidTree(nodesCount, edges) {
 			if (visited.has(neighborNode)) return false // cycle
 			if (!dfs(neighborNode, node)) return false
 		}
+		// all good
 		return true
 	}
 

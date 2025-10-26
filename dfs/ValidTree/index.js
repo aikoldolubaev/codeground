@@ -3,35 +3,36 @@
 // Free:
 // https://www.lintcode.com/problem/178/
 
-function validTreeDFS(n, edges) {
-	if (edges.length !== n - 1) return false
+// Build the graph as an adjacency list
+const graph = Array.from({ length: nodesCount }, () => [])
+for (const [u, v] of edges) {
+	graph[u].push(v)
+	graph[v].push(u)
+}
 
-	const graph = Array.from({ length: n }, () => [])
-	for (const [u, v] of edges) {
-		graph[u].push(v)
-		graph[v].push(u)
-	}
+function isValidTree(nodesCount, edges) {
+	if (edges.length !== nodesCount - 1) return false
 
 	const visited = new Set()
 
 	const dfs = (node, parent) => {
 		visited.add(node)
-		for (const nei of graph[node]) {
-			if (nei === parent) continue // ignore the edge back to parent
-			if (visited.has(nei)) return false // cycle
-			if (!dfs(nei, node)) return false
+		for (const neighborNode of graph[node]) {
+			if (neighborNode === parent) continue // ignore the edge back to parent
+			if (visited.has(neighborNode)) return false // cycle
+			if (!dfs(neighborNode, node)) return false
 		}
 		return true
 	}
 
 	// start from 0 (or any node)
 	if (!dfs(0, -1)) return false
-	return visited.size === n // connected
+	return visited.size === nodesCount // connected
 }
 
 // Example usage:
 console.log(
-	validTreeDFS(5, [
+	isValidTree(5, [
 		[0, 1],
 		[0, 2],
 		[0, 3],

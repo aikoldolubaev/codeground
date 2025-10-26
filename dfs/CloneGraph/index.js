@@ -11,12 +11,16 @@ function cloneGraph(node) {
 	const visited = new Map() // original node -> cloned node
 
 	function dfs(current) {
+		// If the node is already cloned, return the clone
 		if (visited.has(current)) return visited.get(current)
 
+		// Clone the node
 		const clone = new Node(current.val)
 		visited.set(current, clone)
 
+		// Recursively clone neighbors
 		for (const neighbor of current.neighbors) {
+			// If the neighbor is already cloned, reuse the clone
 			clone.neighbors.push(dfs(neighbor)) // recursive deep copy
 		}
 

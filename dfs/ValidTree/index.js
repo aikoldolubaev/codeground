@@ -19,7 +19,7 @@ function isValidTree(nodesCount, edges) {
 		for (const neighborNode of graph[node]) {
 			if (neighborNode === parent) continue // ignore the edge back to parent
 			if (visited.has(neighborNode)) return false // cycle
-			if (!dfs(neighborNode, node)) return false
+			if (!dfs(neighborNode, node)) return false // if recursion returns false
 		}
 		// all good
 		return true

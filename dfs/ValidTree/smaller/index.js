@@ -16,10 +16,10 @@ function isValidTree(nodesCount, edges) {
 
 	const dfs = (node, parent) => {
 		visited.add(node)
-		for (const neighborNode of graph[node]) {
-			if (neighborNode === parent) continue // ignore the edge back to parent
-			if (visited.has(neighborNode)) return false // cycle
-			if (!dfs(neighborNode, node)) return false
+		for (const childNode of graph[node]) {
+			if (childNode === parent) continue // ignore the edge back to parent
+			if (visited.has(childNode)) return false // cycle
+			if (!dfs(childNode, node)) return false
 		}
 		// all good
 		return true

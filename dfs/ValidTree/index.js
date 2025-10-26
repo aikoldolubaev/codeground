@@ -3,14 +3,14 @@
 // Free:
 // https://www.lintcode.com/problem/178/
 
-// Build the graph as an adjacency list
-const graph = Array.from({ length: nodesCount }, () => [])
-for (const [u, v] of edges) {
-	graph[u].push(v)
-	graph[v].push(u)
-}
-
 function isValidTree(nodesCount, edges) {
+	// Build the graph as an adjacency list
+	const graph = Array.from({ length: nodesCount }, () => [])
+	for (const [u, v] of edges) {
+		graph[u].push(v)
+		graph[v].push(u)
+	}
+	// A valid tree should have exactly n-1 edges
 	if (edges.length !== nodesCount - 1) return false
 
 	const visited = new Set()

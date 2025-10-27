@@ -33,6 +33,6 @@ function cloneGraph(node) {
 
 	return dfs(node)
 }
-
-console.log(cloneGraph(new Node(1, [new Node(2), new Node(3)]))) // Node { val: 1, neighbors: [ Node { val: 2, neighbors: [] }, Node { val: 3, neighbors: [] } ] }
+const graph = new Node(1, [new Node(2), new Node(3)])
+console.log(cloneGraph(graph)) // Node { val: 1, neighbors: [ Node { val: 2, neighbors: [] }, Node { val: 3, neighbors: [] } ] }
 console.log(cloneGraph(null)) // null

@@ -19,6 +19,7 @@ function cloneGraph(node) {
 
 		// Clone the node
 		const clone = new Node(current.val)
+		// Mark the clone as visited
 		visited.set(current, clone)
 
 		// Recursively clone neighbors

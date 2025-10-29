@@ -25,7 +25,7 @@ function cloneGraph(node) {
 		// Recursively clone neighbors
 		for (const neighbor of current.neighbors) {
 			// If the neighbor is already cloned, reuse the clone
-			clone.neighbors.push(dfs(neighbor)) // recursive deep copy
+			clone.neighbors.push(dfs(neighbor)) // dfs
 		}
 
 		return clone

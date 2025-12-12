@@ -14,7 +14,7 @@ class MaxHeap {
 		return 2 * i + 2
 	}
 	swap(i, j) {
-		;[this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]]
+		[this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]]
 	}
 
 	insert(value) {

@@ -22,36 +22,34 @@ class MaxHeap {
 		this.heapifyUp()
 	}
 
+	// used in insert
 	heapifyUp() {
 		let lastIndex = this.heap.length - 1
-		// While not at the root and parent is less than current
 		while (lastIndex > 0) {
 			let parentIndex = this.getParentIndex(lastIndex)
-			// If parent is greater or equal than last index, we're done
 			if (this.heap[parentIndex] >= this.heap[lastIndex]) break
 			this.swap(parentIndex, lastIndex)
-			// Move up to parent index
 			lastIndex = parentIndex
 		}
 	}
 
+	// used in extractMax
 	heapifyDown() {
-		let index = 0
-		const hasLeftChild = this.getLeftChildIndex(index) < this.heap.length
+		let firstIndex = 0
+		const hasLeftChild = this.getLeftChildIndex(firstIndex) < this.heap.length
 		while (hasLeftChild) {
-			let leftChildIndex = this.getLeftChildIndex(index)
-			let rightChildIndex = this.getRightChildIndex(index)
+			let leftChildIndex = this.getLeftChildIndex(firstIndex)
+			let rightChildIndex = this.getRightChildIndex(firstIndex)
 
-			const hasRightChild = this.getRightChildIndex(index) < this.heap.length
+			const hasRightChild = this.getRightChildIndex(firstIndex) < this.heap.length
 			const isRightChildBigger = this.heap[rightChildIndex] > this.heap[leftChildIndex]
 			if (hasRightChild && isRightChildBigger) {
 				leftChildIndex = rightChildIndex
 			}
 
-			// If current is greater or equal than left child
-			if (this.heap[index] >= this.heap[leftChildIndex]) break
-			this.swap(index, leftChildIndex)
-			index = leftChildIndex
+			if (this.heap[firstIndex] >= this.heap[leftChildIndex]) break
+			this.swap(firstIndex, leftChildIndex)
+			firstIndex = leftChildIndex
 		}
 	}
 

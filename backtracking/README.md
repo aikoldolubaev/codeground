@@ -2,6 +2,10 @@
 Backtracking explores all possible solutions by making and undoing choices.
 It comes in two main styles:
 
+- [Backtracking](#backtracking)
+	- [1. Choices (Binary Decision)](#1-choices-binary-decision)
+	- [2. Iterative (Looping)](#2-iterative-looping)
+	- [Summary](#summary)
 
 ## 1. Choices (Binary Decision)
 Used when each step has two options — take or skip.

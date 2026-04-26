@@ -11,7 +11,7 @@ const permutations = (options) => {
 			result.push([...path])
 			return
 		}
-
+		// Controls the each level of the tree to try and backtrack
 		for (let i = 0; i < candidates.length; i++) {
 			path.push(candidates[i])
 			const remaining = candidates.slice(0, i).concat(candidates.slice(i + 1))

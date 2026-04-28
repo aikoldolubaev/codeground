@@ -4,7 +4,7 @@ const recursion = (num) => {
 	recursion(num - 1)
 	console.log('📭 After:', num)
 
-	return num // if not return num, it will return undefined
+	return num // if not return, it'd return undefined
 }
 
 console.log(recursion(3))

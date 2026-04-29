@@ -23,4 +23,5 @@ function generateSubsets(options) {
 	return subsets
 }
 
-console.log(generateSubsets([1])) // [[], [1]]
+// console.log(generateSubsets([1])) // [[], [1]]
+console.log(JSON.stringify(generateSubsets([1, 2]))) // [[], [1], [2], [1, 2]]

@@ -13,6 +13,7 @@ function generateSubsets(options) {
 		backtrack(index + 1)
 
 		// Include nums[index]
+
 		stack.push(options[index])
 		backtrack(index + 1)
 

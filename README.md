@@ -12,7 +12,6 @@
     - [Dynamic Programming (DP)](#dynamic-programming-dp)
     - [Greedy](#greedy)
 
-
 Improve problem solving skills
 
 ## Patterns

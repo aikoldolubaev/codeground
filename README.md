@@ -1,9 +1,7 @@
-# codeground
-
+# Codeground
 Improve problem solving skills
 
-
-- [codeground](#codeground)
+- [Codeground](#codeground)
   - [Paterns](#paterns)
     - [Two Pointers](#two-pointers)
     - [Sliding Window](#sliding-window)
@@ -150,7 +148,7 @@ Improve problem solving skills
 **Use when:** matching pairs (brackets), next greater/smaller, undo operations
 
 **Examples:** 
-1. Valid Parentheses 
+1. [Valid Parentheses](stack/validParenthesis.js)
 2. Daily Temperatures
 3. Min Stack
 

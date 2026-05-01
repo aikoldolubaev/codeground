@@ -1,16 +1,17 @@
-const isValid = (parentheses) => {
+const validParenthesis = (parentheses) => {
 	const stack = []
-	const map = {
+	const closingToOpeningMap = {
 		')': '(',
 		'}': '{',
 		']': '[',
 	}
 
 	for (let char of parentheses) {
-		if (char === '(' || char === '{' || char === '[') {
+		const isOpen = char === '(' || char === '{' || char === '['
+		if (isOpen) {
 			stack.push(char)
 		} else {
-			if (stack.pop() !== map[char]) {
+			if (stack.pop() !== closingToOpeningMap[char]) {
 				return false
 			}
 		}
@@ -19,7 +20,7 @@ const isValid = (parentheses) => {
 	return stack.length === 0
 }
 
-console.log(isValid('()')) // true
-console.log(isValid('()[]{}')) // true
-console.log(isValid('(]')) // false
-console.log(isValid('([)]')) // false
+console.log(validParenthesis('()')) // true
+console.log(validParenthesis('()[]{}')) // true
+console.log(validParenthesis('(]')) // false
+console.log(validParenthesis('([)]')) // false

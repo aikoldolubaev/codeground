@@ -10,9 +10,9 @@ const selectionSort = (arr) => {
 		// if the minimum element is not the current element
 		if (minIndex !== i) {
 			// Swap the found minimum element with the current element
-			let temp = arr[i]
+			let current = arr[i]
 			arr[i] = arr[minIndex]
-			arr[minIndex] = temp
+			arr[minIndex] = current
 			// [arr[i], arr[minsIndex]] = [arr[minsIndex], arr[i]]
 		}
 	}

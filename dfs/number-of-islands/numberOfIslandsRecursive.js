@@ -19,10 +19,10 @@ const numIslands = (grid) => {
 		grid[row][col] = '0'
 
 		// Visit all 4 adjacent cells
-		dfs(grid, row + 1, col) // down
-		dfs(grid, row - 1, col) // up
-		dfs(grid, row, col + 1) // right
-		dfs(grid, row, col - 1) // left
+		dfs(grid, row + 1, col) // down; keep going down until we hit water or boundary
+		dfs(grid, row - 1, col) // up; keep going up until we hit water or boundary
+		dfs(grid, row, col + 1) // right: keep going right until we hit water or boundary
+		dfs(grid, row, col - 1) // left: keep going left until we hit water or boundary
 	}
 
 	for (let row = 0; row < grid.length; row++) {

@@ -17,5 +17,4 @@ const insertionSort = (list) => {
 	}
 	return list
 }
-
 console.log(insertionSort([4, 3, 2, 1, 5, 7]))

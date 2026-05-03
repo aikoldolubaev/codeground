@@ -13,10 +13,8 @@ function quickSort(arr) {
 		}
 	}
 
-	// recursively sort left + pivot + right
 	return [...quickSort(left), pivot, ...quickSort(right)]
 }
 
 // Example
-console.log(quickSort([5, 3, 8, 4, 2, 7, 1])) // [1, 2, 3, 4, 5, 7, 8]
-console.log(quickSort([10, -1, 2, 0, 5])) // [-1, 0, 2, 5, 10]
+console.log(quickSort([5, 8, 4, 2, 7]))

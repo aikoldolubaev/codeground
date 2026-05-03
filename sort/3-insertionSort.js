@@ -1,20 +1,15 @@
-
-
-
-
-
-
 // Take the next item and insert it into the correct position
 // - by nature humans sort using insertion sort
 const insertionSort = (list) => {
+	// Start from the second element (index 1) and compare it with the elements before it
 	for (let i = 1; i < list.length; i++) {
 		const current = list[i]
-
+		// shift current element to the left until we find the correct position
 		for (let j = i - 1; j >= 0 && list[j] > current; j--) {
-			list[j + 1] = list[j] // Shift element to the right
-			list[j] = current // Place current in the correct position
+			list[j + 1] = list[j] // Shift to the right
+			list[j] = current // Shift to the left
 		}
 	}
 	return list
 }
-console.log(insertionSort([4, 3, 2, 1, 5, 7]))
+console.log(insertionSort([4, 3, 2, 1, 5]))

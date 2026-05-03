@@ -20,10 +20,12 @@ Improve problem solving skills
 
 ### Sorting
 It's to understand how to move creatively within loops
+- Uses swapping technique
+- Moving elements to change sequences
 **Examples:**
-1. [Bubble sort](./sort/1-bubbleSort.js)
-2. [Selection sort](./sort/2-selectionSort.js)
-3. [Insertion sort](./sort/3-insertionSort.js)
+1. [Bubble sort](./sort/1-bubbleSort.js), swap method used
+2. [Selection sort](./sort/2-selectionSort.js), swap method used
+3. [Insertion sort](./sort/3-insertionSort.js), swap method used
 4. [Heap sort](./sort/4-heapSort.js)
 5. [Merge sort](./sort/4-mergeSort.js)
 6. [Quick sort](./sort/5-quickSort.js)

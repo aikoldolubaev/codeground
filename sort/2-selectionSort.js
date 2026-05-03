@@ -7,9 +7,7 @@ const selectionSort = (arr) => {
 				minIndex = j
 			}
 		}
-		// if the minimum element is not the current element
 		if (minIndex !== i) {
-			// Swap the found minimum element with the current element
 			let current = arr[i]
 			arr[i] = arr[minIndex]
 			arr[minIndex] = current

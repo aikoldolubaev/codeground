@@ -2,11 +2,11 @@
 // - by nature humans sort using insertion sort
 const insertionSort = (list) => {
 	for (let i = 1; i < list.length; i++) {
-		const next = list[i]
+		const current = list[i]
 
-		for (let j = i - 1; j >= 0 && list[j] > next; j--) {
-			list[j + 1] = list[j] // Shift element forward
-			list[j] = next // Place current in the correct position
+		for (let j = i - 1; j >= 0 && list[j] > current; j--) {
+			list[j + 1] = list[j] // Shift element to the right
+			list[j] = current // Place current in the correct position
 		}
 	}
 	return list

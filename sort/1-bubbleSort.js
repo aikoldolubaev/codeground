@@ -1,4 +1,5 @@
 // Swapping adjacent elements if they are in the wrong order
+// Keeps bubbling the largest element to the end
 const bubbleSort = (arr) => {
 	for (let i = 0; i < arr.length - 1; i++) {
 		for (let j = 0; j < arr.length - i; j++) {

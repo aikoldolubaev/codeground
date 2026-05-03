@@ -1,4 +1,4 @@
-// Take the next item and insert it into the correct position
+// Start from the second item and insert it into the left correct position
 // - by nature humans sort using insertion sort
 const insertionSort = (list) => {
 	// Start from the second element (index 1) and compare it with the elements before it

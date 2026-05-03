@@ -1,14 +1,14 @@
 const bubbleSort = (arr) => {
-	for (let i = 0; i < arr.length; i++) {
-		for (let j = i + 1; j < arr.length; j++) {
-			let current = arr[i]
-			let next = arr[j]
-			if (current > next) {
-				let temp = current
-				arr[i] = arr[j]
+	// Bubble sort: repeatedly step through the array and swap adjacent elements if they're in wrong order
+	for (let i = 0; i < arr.length - 1; i++) {
+		// Inner loop goes from end backwards to i, bubbling smaller elements towards the start
+		for (let j = arr.length - 1; j > i; j--) {
+			// Compare current with previous element
+			if (arr[j - 1] > arr[j]) {
+				// Swap
+				let temp = arr[j - 1]
+				arr[j - 1] = arr[j]
 				arr[j] = temp
-
-				// [arr[i], arr[j]] = [arr[j], arr[i]]
 			}
 		}
 	}

@@ -3,6 +3,7 @@ Improve problem solving skills
 
 - [Codeground](#codeground)
   - [Paterns](#paterns)
+    - [Sorting](#sorting)
     - [Two Pointers](#two-pointers)
     - [Sliding Window](#sliding-window)
     - [Hash Map](#hash-map)
@@ -16,6 +17,16 @@ Improve problem solving skills
     - [Greedy](#greedy)
 
 ## Paterns
+
+### Sorting
+It's to understand how to move creatively within loops
+**Examples:**
+1. [Bubble sort](./sort/1-bubbleSort.js)
+2. [Selection sort](./sort/2-selectionSort.js)
+3. [Insertion sort](./sort/3-insertionSort.js)
+4. [Heap sort](./sort/4-heapSort.js)
+5. [Merge sort](./sort/4-mergeSort.js)
+6. [Quick sort](./sort/5-quickSort.js)
 
 ### Two Pointers
 

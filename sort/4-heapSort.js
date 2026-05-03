@@ -1,14 +1,14 @@
 function heapSort(arr) {
-	// Start from the last non-leaf node and heapify each node
-	// We go backwards to ensure all subtrees are heapified
+	// Build a maxheap
 	for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
 		heapify(arr, arr.length, i)
 	}
 
 	// Extract elements one by one
 	for (let i = arr.length - 1; i > 0; i--) {
-		;[arr[0], arr[i]] = [arr[i], arr[0]] // Swap
-
+		let temp = arr[0]
+		arr[0] = arr[i]
+		arr[i] = temp
 		heapify(arr, i, 0)
 	}
 	return arr
@@ -37,5 +37,5 @@ function heapify(arr, n, i) {
 }
 
 // Example
-console.log(heapSort([12, 11, 13, 5, 6, 7]))
+console.log(heapSort([12, 1, 13, 5, 6, 7]))
 // [5, 6, 7, 11, 12, 13]

@@ -1,3 +1,5 @@
+// Take the next item and insert it into the correct position
+// - by nature humans sort using insertion sort
 const insertionSort = (list) => {
 	for (let i = 1; i < list.length; i++) {
 		const next = list[i]

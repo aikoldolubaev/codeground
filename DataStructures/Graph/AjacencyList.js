@@ -1,5 +1,3 @@
-
-
 class Graph {
 	constructor() {
 		this.adjacencyList = {}
@@ -52,20 +50,20 @@ graph.addEdge('A', 'B')
 graph.addEdge('A', 'C')
 graph.addEdge('B', 'C')
 graph.print()
-// Output:
-// A -> B, C
-// B -> A, C
-// C -> A, B
+// // Output:
+// // A -> B, C
+// // B -> A, C
+// // C -> A, B
 
-graph.removeEdge('A', 'B')
-graph.print()
-// Output:
-// A -> C
-// B -> C
-// C -> A, B
+// graph.removeEdge('A', 'B')
+// graph.print()
+// // Output:
+// // A -> C
+// // B -> C
+// // C -> A, B
 
-graph.removeVertex('C')
-graph.print()
-// Output:
-// A ->
-// B ->
+// graph.removeVertex('C')
+// graph.print()
+// // Output:
+// // A ->
+// // B ->

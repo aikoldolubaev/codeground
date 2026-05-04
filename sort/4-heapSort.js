@@ -37,5 +37,4 @@ function heapify(arr, n, i) {
 }
 
 // Example
-console.log(heapSort([12, 1, 13, 5, 6, 7]))
-// [5, 6, 7, 11, 12, 13]
+console.log(heapSort([12, 1, 13, 5, 6]))

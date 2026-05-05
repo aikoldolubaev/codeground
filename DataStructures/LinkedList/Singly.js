@@ -1,7 +1,7 @@
 class Node {
-	constructor(val) {
+	constructor(value) {
+		this.value = value
 		this.next = null
-		this.value = val
 	}
 }
 
@@ -11,97 +11,208 @@ class SinglyLinkedList {
 		this.tail = null
 		this.length = 0
 	}
-	insert(val) {
-		var newNode = new Node(val)
+
+	/**
+	 * Append value to end of list
+	 * @param {*} value
+	 * @returns {SinglyLinkedList}
+	 */
+	push(value) {
+		const node = new Node(value)
 		if (!this.head) {
-			this.head = newNode
-			this.tail = this.head
+			this.head = node
+			this.tail = node
 		} else {
-			this.tail.next = newNode //new SinglyLinkedList.tail.next = newNode;
-			this.tail = newNode //new SinglyLinkedList.tail = newNode;
+			this.tail.next = node
+			this.tail = node
 		}
 		this.length++
 		return this
 	}
+
+	/**
+	 * Remove and return last node
+	 * @returns {Node|null}
+	 */
 	pop() {
-		var current = this.head
-		var newTail = current
+		if (!this.head) return null
+		let current = this.head
+		let prev = null
 		while (current.next) {
-			newTail = current
-			current = current.next //current.next.next.next;
+			prev = current
+			current = current.next
 		}
-		this.tail = newTail //prev node
-		this.tail.next = null //removing node
-		this.length--
-		if (this.length === 0) {
-			// edge case if there no node left
+		if (prev) {
+			prev.next = null
+			this.tail = prev
+		} else {
+			// list had a single node
 			this.head = null
 			this.tail = null
+		}
+		this.length--
+		return current
+	}
+
+	/**
+	 * Remove and return first node
+	 * @returns {Node|null}
+	 */
+	shift() {
+		if (!this.head) return null
+		const node = this.head
+		this.head = node.next
+		if (!this.head) this.tail = null
+		this.length--
+		node.next = null
+		return node
+	}
+
+	/**
+	 * Prepend value to start of list
+	 * @param {*} value
+	 * @returns {SinglyLinkedList}
+	 */
+	unshift(value) {
+		const node = new Node(value)
+		if (!this.head) {
+			this.head = node
+			this.tail = node
+		} else {
+			node.next = this.head
+			this.head = node
+		}
+		this.length++
+		return this
+	}
+
+	/**
+	 * Get node at index
+	 * @param {number} index
+	 * @returns {Node|null}
+	 */
+	get(index) {
+		if (index < 0 || index >= this.length) return null
+		let current = this.head
+		let i = 0
+		while (i < index) {
+			current = current.next
+			i++
 		}
 		return current
 	}
 
-	reverse() {
-		//swapping the head & tail
-		var node = this.head
-		this.head = this.tail
-		this.tail = node
-
-		// var next = null;
-		var prev = null //=> next: null;
-		for (let i = 0; i < this.length; i++) {
-			//swapping arrows next & prev
-			var next = node.next
-			node.next = prev
-			prev = node
-			node = next //next:undefined;
-		}
-		return this
+	/**
+	 * Set value at index
+	 * @param {number} index
+	 * @param {*} value
+	 * @returns {boolean}
+	 */
+	set(index, value) {
+		const node = this.get(index)
+		if (!node) return false
+		node.value = value
+		return true
 	}
 
-	reverse2(list) {
-		let current = list
-		let next = null
+	/**
+	 * Insert value at index
+	 * @param {number} index
+	 * @param {*} value
+	 * @returns {boolean}
+	 */
+	insert(index, value) {
+		if (index < 0 || index > this.length) return false
+		if (index === 0) return !!this.unshift(value)
+		if (index === this.length) return !!this.push(value)
+		const prev = this.get(index - 1)
+		if (!prev) return false
+		const node = new Node(value)
+		node.next = prev.next
+		prev.next = node
+		this.length++
+		return true
+	}
+
+	/**
+	 * Remove node at index
+	 * @param {number} index
+	 * @returns {Node|null}
+	 */
+	remove(index) {
+		if (index < 0 || index >= this.length) return null
+		if (index === 0) return this.shift()
+		if (index === this.length - 1) return this.pop()
+		const prev = this.get(index - 1)
+		const removed = prev.next
+		prev.next = removed.next
+		removed.next = null
+		this.length--
+		return removed
+	}
+
+	/**
+	 * Reverse list in-place
+	 * @returns {SinglyLinkedList}
+	 */
+	reverse() {
 		let prev = null
+		let current = this.head
+		this.tail = this.head
 		while (current) {
-			let next = current.next
+			const next = current.next
 			current.next = prev
-			next.next = current
 			prev = current
 			current = next
 		}
-		return list
+		this.head = prev
+		return this
 	}
 
-	// Do the reverse recursive way now
-	reverseRecursiveWay() {}
-
-	mergeLists(listOne, listTwo) {
-		const result = { val: null, next: null }
-		const curr = result
-
-		while (listOne && listTwo) {
-			if (listOne.val < listTwo.val) {
-				curr.next = listOne
-				listOne = listOne.next
+	/**
+	 * Static helper: merge two sorted lists (given their head nodes)
+	 * Returns head of merged sorted list (nodes reused)
+	 * @param {Node|null} l1
+	 * @param {Node|null} l2
+	 * @returns {Node|null}
+	 */
+	static mergeSortedLists(l1, l2) {
+		const dummy = new Node(null)
+		let tail = dummy
+		let a = l1
+		let b = l2
+		while (a && b) {
+			if (a.value <= b.value) {
+				tail.next = a
+				a = a.next
 			} else {
-				// counter = 0
-				curr.next = listTwo
-				// counter++;
-				listTwo = listTwo.next
+				tail.next = b
+				b = b.next
 			}
-			// result.push(curr)
-			curr = curr.next
+			tail = tail.next
 		}
-		// whichever is left push to result
-		curr.next = listOne || listTwo
-		return result.next
+		tail.next = a || b
+		return dummy.next
+	}
+
+	toArray() {
+		const out = []
+		let cur = this.head
+		while (cur) {
+			out.push(cur.value)
+			cur = cur.next
+		}
+		return out
 	}
 }
 
-var ssl = new SinglyLinkedList()
-ssl.insert('1')
-ssl.insert('2')
-ssl.insert('3')
-ssl.reverse()
-console.log(ssl)
+// Example / quick test
+const list = new SinglyLinkedList()
+list.push(1).push(2).push(3)
+console.log('list:', list.toArray())
+list.reverse()
+console.log('reversed:', list.toArray())
+list.insert(1, 99)
+console.log('after insert:', list.toArray())
+console.log('removed:', list.remove(1).value)
+console.log('final:', list.toArray())

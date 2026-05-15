@@ -5,6 +5,7 @@ class MaxHeap {
 	}
 
 	getParentIndex(i) {
+		// -1 accounts for the 0-based index offset
 		return Math.floor((i - 1) / 2)
 	}
 	getLeftChildIndex(i) {
@@ -36,8 +37,7 @@ class MaxHeap {
 	// used in extractMax
 	heapifyDown() {
 		let firstIndex = 0
-		const hasLeftChild = this.getLeftChildIndex(firstIndex) < this.heap.length
-		while (hasLeftChild) {
+		while (this.getLeftChildIndex(firstIndex) < this.heap.length) {
 			let leftChildIndex = this.getLeftChildIndex(firstIndex)
 			let rightChildIndex = this.getRightChildIndex(firstIndex)
 
@@ -115,4 +115,4 @@ maxHeap.insert(20)
 maxHeap.insert(2)
 maxHeap.print() // [20, 10, 5, 2]
 console.log(maxHeap.extractMax()) // 20
-maxHeap.print() // [10, 2, 5]
+console.log('✅heap', maxHeap.heap) //

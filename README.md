@@ -180,7 +180,6 @@ It's to understand how to move creatively within loops
 6. Longest Increasing Subsequence
 
 ---
-
 ### Greedy
 
 **Use when:** local best choice = global best, intervals/scheduling
